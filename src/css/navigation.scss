@@ -1,0 +1,293 @@
+.navigation {
+    width: 288px;
+    min-width: 200px; 
+    padding-top: 46px;
+
+    &__item {
+        margin-bottom: 24px;
+        
+        a {
+            display: block;
+            padding-left: 40px;
+            position: relative;
+            line-height: 24px;
+            color: $color-main-text;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                left: 0;
+                top: 0;
+                background-size: contain;
+
+            }
+            &:hover,
+            &:active {
+                color: $color-blue;
+            }
+        }
+        &.active {
+
+            a {
+                color: $color-blue;
+            }
+        }
+    }
+    &__container {
+        @media (max-width: $tablet-middle-size) { 
+            display: none; 
+
+            &.active {
+                    display: block;
+                    position: absolute;
+                    margin-top: 8px;
+                    z-index: 1;
+                    background-color: $color-white;
+                    width: calc(100% - 32px);
+                    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.101223);
+    
+                    .navigation__item {
+                        margin-bottom: 0;
+                        a {
+                            padding: 16px 16px 16px 48px;
+                            border-bottom: 1px solid $border-color;
+                            &:hover,
+                            &:active {
+                                background-color: $color-hover-bg;
+                            }
+                            &:after {
+                                left: 16px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                        &:last-child a {
+                            border-bottom: none;
+                        }
+                        &.active {
+                            display: none;
+                        }
+                    }
+            }
+        }
+        
+    }
+    &__mobile-main {
+        display: none;
+        color: $color-white;
+        background-color: $color-blue;
+        border-radius: 4px;
+        width: 100%;
+        height: 48px;
+        line-height: 48px;
+        
+            .navigation__mobile-active {
+                color: $color-white;
+                line-height: 48px;
+                padding-left: 48px;
+                position: relative;
+                &:hover,
+                &:active {
+                    color: $color-white;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    background-size: contain;
+                    background-image: url(../images/navigation/rooms-white.svg);
+                    left: 16px;
+                    top: 12px;
+                    width: 24px;
+                    height: 24px;
+                }
+                &:before {
+                    content: "";
+                    position: relative;
+                    top: 12px;
+                    left: calc(100% - 28px);
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 6px 4px 0 4px;
+                    border-color: $color-white transparent transparent transparent;
+                }
+            }
+        @media (max-width: $tablet-middle-size) { 
+            display: block;
+            margin-bottom: 0;
+            cursor: pointer; 
+        }
+    }
+    @media (max-width: $tablet-middle-size)  {
+        width: 100%;
+        padding: 0 16px;
+        margin-top: 20px;
+        z-index: 10;
+        position: relative;
+    }
+}
+.icon-nav-room {
+    a {
+        &:after {
+            background-image: url(../images/navigation/rooms.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/rooms-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/rooms-blue.svg);
+        }
+    }
+}
+.icon-nav-scedule {
+    a {
+        &:after {
+            background-image: url(../images/navigation/schedule.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/schedule-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/schedule-blue.svg);
+        }
+    }
+}
+.icon-nav-meetings {
+    a {
+        &:after {
+            background-image: url(../images/navigation/meetings.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/meetings-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/meetings-blue.svg);
+        }
+    }
+}
+.icon-nav-records {
+    a {
+        &:after {
+            background-image: url(../images/navigation/records.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/records-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/records-blue.svg);
+        }
+    }
+}
+.icon-nav-contacts {
+    a {
+        &:after {
+            background-image: url(../images/navigation/contacts.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/contacts-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/contacts-blue.svg);
+        }
+    }
+}
+.icon-nav-profile {
+    a {
+        &:after {
+            background-image: url(../images/navigation/profile.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/profile-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/profile-blue.svg);
+        }
+    }
+}
+.icon-nav-contact-us {
+    a {
+        &:after {
+            background-image: url(../images/navigation/contact-us.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/contact-us-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/contact-us-blue.svg);
+        }
+    }
+}
+.icon-nav-billing {
+    a {
+        &:after {
+            background-image: url(../images/navigation/billing.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/billing-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/billing-blue.svg);
+        }
+    }
+}
+.icon-nav-reports {
+    a {
+        &:after {
+            background-image: url(../images/navigation/reports.svg);
+        }
+        &:hover,
+        &:active {
+            &:after {
+                background-image: url(../images/navigation/reports-blue.svg);
+            }
+        }
+    }
+    &.active {
+        a:after {
+            background-image: url(../images/navigation/reports-blue.svg);
+        }
+    }
+}

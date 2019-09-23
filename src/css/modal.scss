@@ -1,0 +1,112 @@
+.modal {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .61);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    &__container {
+        background-color: $color-white;
+        box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.15);
+        z-index: 10;
+        position: absolute;
+        width: 442px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 40px 32px;
+    }
+    &__title {
+        font-size: 18px;
+        padding-bottom: 32px;
+    }
+    &__line-content {
+        display: flex;
+    }
+    &__input {
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        height: 40px;
+        padding: 0 8px;
+        &:focus {
+            border-color: $color-green;
+        }
+    }
+    &__buttons {
+        display: flex;
+        & > div {
+            min-width: 100px;
+            text-align: center;
+            padding: 0 16px;
+        }
+    }
+    &__change-pin {
+        .modal {
+            &__title {
+                padding-bottom: 52px;
+            }
+            &__input {
+                width: 37%;
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &__invite {
+        .modal {
+
+            &__title {
+                padding-bottom: 6px;
+            }
+        }
+    }
+    &__textarea {
+        width: 100%;
+        height: 96px;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        padding: 0 8px;
+        margin-bottom: 24px;
+        resize: none;
+        &:focus {
+            border-color: $color-green;
+        }
+    }
+    &__sub-title {
+        color: #868C9C;
+        margin-bottom: 24px;
+    }
+    .white-btn {
+        margin-left: 16px;
+    }
+
+    &__exception,
+    &__notification {
+        .modal {
+            &__title {
+                text-align: center;
+                padding-bottom: 46px;
+            }
+            &__buttons {
+                justify-content: space-around;
+                & > div {
+                    width: 48%;
+                }
+            }
+        }
+    }
+}
+.loader-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.25);
+    z-index: 10;
+}

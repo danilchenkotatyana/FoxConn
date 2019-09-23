@@ -1,0 +1,519 @@
+.icon-edit {
+    display: inline-block;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    background: url(../images/icon-edit.svg);
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+.close-icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 16px;
+    top: 16px;
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: $tablet-size) {
+        display: block;
+    }
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 22px;
+        transform: rotate(45deg);
+        border-radius: 4px;
+        background-color: #d8d8d8;
+        position: absolute;
+        left: 50%;
+    }
+    &.close-icon::before {
+        transform: rotate(-45deg);
+    }
+}
+.records-count {
+    color: $color-main-text;
+    padding-left: 8px;
+}
+.records-list {
+    position: relative;
+    padding: 32px 0 0 0;
+    //border-bottom: 1px solid $border-color;
+
+    &__delete-selected {
+        color: $color-red;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding-left: 24px;
+        &:hover {
+            color: $color-red;
+        }
+        &:active {
+            color: $color-dark-blue;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-size: contain;
+            background: url("../images/icon-trash-red.svg") no-repeat center;
+        }
+    }
+
+    &.top-list {
+        padding-bottom: 32px;
+
+        @media (max-width: $tablet-middle-size) {
+            padding-top: 24px;
+        }
+    }
+    &__title {
+        color: #868c9c;
+        padding-bottom: 24px;
+
+        // span {
+        //     padding-left: 8px;
+        //     color: $color-main-text;
+        // }
+        @media (max-width: $tablet-middle-size) {
+            padding-bottom: 16px;
+        }
+
+        .num {
+            color: $color-main-text;
+        }
+    }
+    &__showall {
+        cursor: pointer;
+        color: $color-blue;
+        position: absolute;
+        right: 0;
+        top: 32px;
+        line-height: 16px;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-white;
+        border-radius: 4px;
+        padding: 16px 24px;
+        position: relative;
+        flex-wrap: wrap;
+        &.checkbox {
+            padding-left: 48px;
+        }
+    }
+    &__recording {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-white;
+        border-radius: 4px;
+        padding: 18px 24px;
+        margin-top: 8px;
+        position: relative;
+        flex-wrap: wrap;
+    }
+    &__play {
+        width: 32px;
+        height: 32px;
+        background: transparent url(../images/icon-stop.svg) center no-repeat;
+        flex-shrink: 0;
+        cursor: pointer;
+        background-size: contain;
+        &.play {
+            background: transparent url(../images/icon-play.svg) center no-repeat;
+        }
+    }
+    &__record {
+        width: 18px;
+        height: 18px;
+        background: transparent url(../images/icon-record-red.svg) center no-repeat;
+        flex-shrink: 0;
+        background-size: contain;
+    }
+    &__info {
+        padding-left: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: calc(100% - 40px - 160px - 40px - 24px);
+        width: calc(100% - 38px - 160px - 40px - 24px);
+        flex-grow: 1;
+
+        @media (max-width: $tablet-size) {
+            max-width: calc(100% - 34px);
+            width: calc(100% - 32px);
+            margin-bottom: 16px;
+        }
+    }
+    &__name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__time {
+        color: #868c9c;
+        padding-top: 8px;
+    }
+    &__duration {
+        color: $color-main-text;
+        padding-left: 8px;
+        margin-left: 8px;
+        display: inline-block;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 1px;
+            height: 16px;
+            background-color: #868c9c;
+        }
+    }
+    &__bin::after,
+    &__stop:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 32px;
+        background-color: rgba(167, 176, 192, 0.3);
+        left: -24px;
+        top: -8px;
+    }
+    &__bin {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        margin-left: 24px;
+        flex-shrink: 0;
+        background: transparent url(../images/icon-trash.svg) center no-repeat;
+
+        &:after {
+            @media (max-width: $mobile-size) {
+                left: -8px;
+            }
+        }
+
+        @media (max-width: $mobile-size) {
+            margin-left: 8px;
+        }
+    }
+    &__download,
+    &__pause,
+    &__stop,
+    &__resume {
+        padding-left: 32px;
+        cursor: pointer;
+        position: relative;
+        padding-right: 24px;
+        flex-shrink: 0;
+        &:hover {
+            color: $color-blue;
+        }
+        &:active {
+            color: $color-dark-blue;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 0;
+            flex-shrink: 0;
+            background-size: contain;
+            background: transparent url(../images/icon-download.svg) center no-repeat;
+        }
+    }
+    &__download {
+        @media (max-width: $mobile-size) {
+            padding-right: 0;
+            padding-left: 26px;
+        }
+    }
+    &__download,
+    &__pause {
+        @media (max-width: $mobile-size) {
+            left: 0;
+        }
+    }
+    &__stop {
+        padding-right: 0;
+        margin-left: 24px;
+    }
+    &__pause::after {
+        width: 16px;
+        height: 16px;
+        background-image: url("../images/icon-pause-record.svg");
+        top: 1px;
+    }
+    &__stop::after {
+        width: 13px;
+        height: 13px;
+        background-image: url("../images/icon-stop-record.svg");
+        top: 3px;
+    }
+    &__resume:after {
+        width: 16px;
+        height: 16px;
+        background-image: url("../images/icon-recording.svg");
+        top: 1px;
+    }
+    &__download-size {
+        color: #868c9c;
+        padding-left: 6px;
+    }
+    &__title span.link {
+        padding-left: 0;
+    }
+}
+.record-player {
+    width: 48%;
+
+    @media (max-width: $tablet-size) {
+        position: fixed;
+		width: 100%;
+		height: 100%;
+		background-color: #000;
+		display: flex;
+		/*justify-content: center;*/
+		align-items: center;
+		top: 0;
+		left: 0;
+		z-index: 12;
+		padding: 0;
+        flex-direction: column;
+        
+        &.hide-player {
+            display: none;
+        }
+    }
+    video {
+        width: 100%;
+
+        @media (max-width: $tablet-size) {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        padding-bottom: 16px;
+        line-height: 16px;
+        height: 32px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+
+        @media (max-width: $tablet-size) {
+            align-self: flex-start;
+		    padding: 16px 26px 16px 56px;
+		    color: $color-white;
+		    position: relative;
+		    line-height: 24px;
+		    width: 100%;
+            height: 48px; 
+        }
+    }
+}
+
+.record__list-container {
+    width: 48%;
+    position: relative;
+    height: calc(100vh - 390px);
+    overflow: hidden;
+
+    @media (max-width: $tablet-size) {
+        width: 100%;
+        height: auto; 
+    }
+
+    .records-list {
+        &__items {
+            overflow-Y: auto;
+            height: calc(100% - 32px);
+        }
+        &__item {
+            margin-bottom: 4px;
+            &.active {
+                border: 1px solid $color-green;
+            }
+        }
+        &__title {
+            padding-bottom: 16px;
+            position: relative;
+            height: 32px;
+            width: 100%;
+            flex-shrink: 0;
+            .checkbox-custom {
+                top: 3px;
+            }
+        }
+        &__box {
+            max-height: calc(100vh - 396px);
+            min-height: 250px;
+            overflow: auto;
+        }
+        &__info {
+            max-width: calc(100% - 34px);
+            width: calc(100% - 32px);
+            margin-bottom: 16px;
+        } 
+    }
+}
+.record-container {
+    background-color: $color-hover-bg;
+    padding: 24px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    
+    flex-wrap: wrap; 
+
+    .main_title {
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+    }
+    
+    input.checkbox {
+        display: none;
+    }
+}
+
+input.checkbox[type=checkbox]:checked + .checkbox-custom:before {
+    content: '';
+    position: absolute;
+    color: $color-blue;
+    top: 3px;
+    left: 2px;
+    height: 8px;
+    width: 10px;
+    background: url("../images/icon-checkbox.svg") no-repeat center;
+    background-size: contain;
+}
+.separate-checked .checkbox-custom:before,
+.separate-checked input.checkbox[type=checkbox]:checked + .checkbox-custom:before {
+    background-color: $color-blue;
+    width: 10px;
+    height: 2px;
+    border-radius: 1px;
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 2px;
+} 
+
+label .checkbox-custom {
+    height: 16px;
+    width: 16px;
+    border: 1px solid $color-light-grey;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin-right: 14px;
+    padding: 0;
+}
+label:hover .checkbox-custom {
+    border-color: $color-blue;
+    cursor: pointer;
+}
+.record-current {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 16px 24px;
+    position: relative;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 32px;
+
+    @media (max-width: $mobile-size) {
+        justify-content: flex-end;      
+    }
+
+    &__indicator {
+        width: 18px;
+        height: 18px;
+        background: transparent url(../images/icon-record-red.svg) 50% no-repeat;
+        flex-shrink: 0;
+        background-size: contain;
+        cursor: pointer;
+    }
+    &__info {
+        padding-left: 16px;
+        //max-width: calc(100% - 242px);
+        width: calc(100% - 208px); 
+
+        @media (max-width: $tablet-middle-size) {
+            width: calc(100% - 186px);
+        }
+
+        @media (max-width: $mobile-size) {
+            width: calc(100% - 18px);     
+        }
+    }
+    &__time {
+        color: $color-grey;
+        display: block;
+        padding-top: 8px;
+    }
+    &__button {
+        position: relative;
+        cursor: pointer;
+        padding-left: 24px;
+        padding-right: 24px;
+        margin-left: 24px;
+        flex-shrink: 0;
+        height: 32px;
+        line-height: 32px;
+        border-right: 1px solid rgba(167, 176, 192, 0.3);
+
+        @media (max-width: $tablet-middle-size) {
+            margin-left: 16px;
+            padding-right: 16px;
+        }
+
+        @media (max-width: $mobile-size) {
+            margin-top: 8px;
+        }
+
+        &:last-child {
+            border-right: none;
+            padding-right: 0;
+        }
+        &:after {
+            width: 18px;
+            height: 18px;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-size: contain;
+        }
+        &.icon-stop {
+            &:after {
+                background: transparent url(../images/icon-recording-stop.svg) 50% no-repeat;
+            }
+        }
+        &.icon-pause {
+            &:after {
+                background: transparent url(../images/icon-pause-record.svg) 50% no-repeat;
+            }
+        }
+    }
+}

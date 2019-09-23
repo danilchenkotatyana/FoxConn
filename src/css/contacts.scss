@@ -1,0 +1,251 @@
+.contacts-list {
+    
+    .checkbox-label {
+        left: 0;
+        position: relative;
+        display: flex;
+    }
+
+    &__title {
+        margin: 0 0 8px 0;
+        border-bottom: 1px solid $border-color;
+        position: relative;
+        text-transform: uppercase; 
+        margin: 0 24px;
+        font-weight: bold; 
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 8px;
+
+        @media (max-width: $tablet-size) { 
+            border-bottom: none; 
+            margin: 0 16px;
+            padding-bottom: 16px;
+            .contacts-list {
+                &__mail,
+                &__name,
+                &__last-name,
+                &__edit {
+                    display: none;
+                }
+            }
+        }
+    }
+    &__manage {
+        width: 100%;
+        margin: 0 0 32px 24px;
+        position: relative;
+        height: 20px;
+        @media (max-width: $tablet-size) {
+            margin: 0; 
+            height: 0;
+        }
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; 
+        flex-wrap: wrap;
+        width: 100%;
+
+        &.inputs-container {
+            width: 100%;
+        }
+
+        @media (max-width: $tablet-size) {
+            width: 93%;
+        }
+        @media (max-width: $tablet-middle-size) {
+            width: 94%;
+        }
+        @media (max-width: $tablet-small-size) {
+            width: 91%;
+        }
+        @media (max-width: $mobile-size) {
+            width: 89%;
+        }
+        @media (max-width: $mobile-small-size) {
+            width: 88%;
+        }
+    }
+    &__item {
+        position: relative;
+        padding: 16px 24px;
+        border-radius: 4px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:nth-child(2n) {
+            background-color: $color-hover-bg;
+        }
+        @media (max-width: $tablet-size) {
+            margin-bottom: 8px;
+            background-color: $color-hover-bg;
+            flex-wrap: wrap; 
+            padding: 16px;
+        }
+    } 
+     &__mail {
+        width: 45%; 
+        padding-right: 8px;
+        @media (max-width: $tablet-size) {
+            margin: 0;
+            width: 100%;
+        }
+     }
+    &__name,
+    &__last-name {
+        width: 24%;
+        padding-right: 8px;
+        @media (max-width: $tablet-size) {
+            margin: 8px 0 0 0;
+            width: 47%;
+        }
+    }
+    &__edit {
+        width: 40%;
+        text-align: right;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; 
+        
+        @media (max-width: $tablet-size) {
+            margin-top: 8px;
+            width: 100%;
+            justify-content: space-between; 
+        } 
+
+        .btn-green {
+            margin-left: 24px;
+            @media (max-width: $tablet-size) {
+                margin-left: 0;
+                width: auto;
+            }
+        }
+        .btn-white {
+            margin-left: 16px;
+
+            @media (max-width: $tablet-size) {
+                margin-left: 0;
+                width: auto;
+            }
+        }
+
+        .edit-icon {
+            display: inline-block;
+            @media (max-width: $tablet-size) {
+                position: absolute;
+                top: -54px;
+                right: 0;
+            }
+        }
+    }
+    .input {
+        border: 1px solid $border-color;
+        line-height: 40px;
+        height: 40px;
+        padding: 0 16px;
+        margin-right: 8px;
+        border-radius: 4px;
+        @media (max-width: $tablet-size) {
+            margin-right: 0;
+        }
+        &:focus {
+            border-color: $color-green;
+        }
+    }
+    &__delete-selected {
+        color: $color-red;
+        cursor: pointer;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-left: 24px;
+        &:hover {
+            color: $color-red;
+        }
+        &:active {
+            color: $color-dark-blue;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-size: contain;
+            background: url("../images/icon-trash-red.svg") no-repeat center;
+        }
+        @media (max-width: $tablet-size) {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+.import-contacts {
+    &__dropdown {
+        top: calc(100% + 8px);
+        left: -8px;
+        right: auto;
+        min-width: 240px;
+    }
+    &__item {
+        padding: 20px 56px;
+        display: block;
+        color: #2D2D2D;
+        position: relative;
+        border-top: 1px solid $border-color;
+        &:first-child {
+            border-top: none;
+        }
+        &:hover {
+            color: $color-dark-blue;
+            cursor: pointer;
+        }
+        &:active {
+            color: $color-dark-blue;
+            background-color: #F5F5F7;
+        }
+        &::after {
+            content: '';
+            display: block; 
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 16px;
+            width: 24px;
+            height: 24px; 
+            background-size: contain;
+        } 
+        &.icon-google {
+            &::after {
+                background-image: url(../images/importContacts/icon-google.svg);
+            }
+        }
+        &.icon-infocus {
+            &::after {
+                background-image: url(../images/importContacts/icon-infocus.svg);
+            }
+        }
+        &.icon-outlook {
+            &::after {
+                background-image: url(../images/importContacts/icon-outlook.svg);
+            }
+        }
+        &.icon-import {
+            &::after {
+                background-image: url(../images/importContacts/icon-import.svg);
+            }
+        }
+        &.icon-download {
+            &::after {
+                background-image: url(../images/importContacts/icon-download.svg);
+            }
+        }
+    }
+}

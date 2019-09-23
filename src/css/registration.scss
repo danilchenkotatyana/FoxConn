@@ -1,0 +1,91 @@
+.registration {
+    &__content {
+        margin: auto;
+        width: 420px;
+        text-align: center;
+
+        @media (max-width: $tablet-middle-size) {
+            width: 320px;
+        }
+    }
+    &__plan-title {
+        color: $color-blue;
+        font-size: 36px;
+        font-weight: bold;
+    }
+    &__plan-sub-title {
+        color: $color-blue;
+        font-size: 28px;
+        margin-bottom: 36px;
+    }
+    &__plan-text {
+        font-size: 20px;
+        margin-bottom: 36px;
+    }
+    &__message {
+        margin-bottom: 8px;
+        &.error {
+            color: $color-red;
+        }
+    }
+    &__input {
+        margin: 0 0 8px 0;
+        width: 100%;
+    }
+    &__button {
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 16px;
+    }
+    &__title {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    &__text {
+        margin-bottom: 16px;
+        font-size: 16px;
+    }
+    &__sub-text {
+        margin-bottom: 16px;
+        font-size: 18px;
+    }
+    .form-select {
+        margin-bottom: 8px;
+    }
+    .form-item {
+        text-align: left;
+    }
+}
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 420px;
+    margin: 0 auto 24px;
+
+    @media (max-width: $tablet-middle-size) {
+        width: 320px;
+        font-size: 12px;
+        margin-bottom: 32px;
+    }
+    &__item {
+        color: $color-grey;
+        &.active {
+            .steps__number {
+                background-color: $color-blue;
+            }
+        }
+    }
+    &__number {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        background-color: $border-color;
+        color: $color-white;
+        font-size: 40px;
+        margin: auto;
+        margin-bottom: 10px;
+        text-align: center;
+        line-height: 50px;
+    }
+}

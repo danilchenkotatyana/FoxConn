@@ -1,0 +1,51 @@
+.billing {
+    max-width: 1050px;
+    .form-item {
+        width: 320px;
+    }
+    .input-surname {
+        border-radius: 0px 4px 4px 0px;
+        width: 50%;
+    }
+    .input-name {
+        border-radius: 4px 0px 0px 4px;
+        width: 50%;
+    }
+}
+.billing-form {
+    
+    .bottom-btn {
+        padding-top: 46px;
+        border-top: 1px solid $border-color;
+        display: flex;
+    }
+}
+.billing-switcher {
+    display: flex;
+    padding-bottom: 40px;
+    &__item {
+        background-color: $color-white;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        text-align: center;
+        color: $color-blue;
+        cursor: pointer;
+        height: 40px;
+        line-height: 38px;
+        padding: 0 24px;
+        border-radius: 4px;
+        font-size: 14px;
+        min-width: 120px;
+        &.active {
+            background-color: $color-blue;
+            color: $color-white;
+        }
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}

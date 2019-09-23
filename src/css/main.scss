@@ -1,0 +1,373 @@
+@import "accessory.scss";
+@import "normalize.scss", "reset.scss";
+@import "common.scss", "fonts.scss", "components.scss";
+
+@import "header.scss", "footer.scss", "navigation.scss";
+@import "modal.scss";
+
+
+#root {
+    height: 100%;
+    background: #F2F2F2;
+}
+.main-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.content {
+    height: calc(100vh - 64px - 72px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 32px 2%;
+    width: 100%;
+
+    @media (max-width: $tablet-middle-size) {
+        padding: 0;
+        //background-color: $color-white;
+        
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+.page-title {
+    margin-bottom: 32px;
+    margin-left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $tablet-size) {
+        margin-bottom: 24px;
+    }
+
+    @media (max-width: $tablet-middle-size) {
+        flex-direction: column;
+        margin-left: 0;
+        //margin-bottom: 24px;
+    }
+    @media (max-width: $tablet-small-size) {
+        //margin-bottom: 24px;
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        @media (max-width: $tablet-middle-size) {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+    .manage-btn {
+        margin-left: 32px;
+
+        @media (max-width: $tablet-middle-size) {
+            margin-left: 0;
+        }
+    }
+    &__info {
+        color: $color-light-grey;
+        font-size: 14px;
+        display: flex;
+
+        @media (max-width: $tablet-middle-size) {
+            margin-top: 8px;
+        }
+        .items-counter {
+            padding-left: 24px;
+            position: relative;
+            &::after {
+                content: '';
+                width: 1px;
+                height: 32px;
+                background-color: rgba(167, 176, 192, 0.3);
+                position: absolute;
+                left: 0;
+                top: -6px;
+            }
+        }
+    }
+    h1 {
+        display: flex;
+        align-items: center;
+    }
+}
+.page {
+    background: $color-white;
+    border-radius: 8px;
+    padding: 36px 24px 32px;
+
+    max-width: 850px;
+    width: 100%;
+
+    @media (max-width: $tablet-middle-size) {
+        width: 100%;
+        padding: 24px 16px 8px;
+        margin-top: 16px;
+    }
+}
+
+.closed,
+.control-button.closed {
+    display: none;
+}
+.control-button {
+    color: $color-white;
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    cursor: pointer;
+    background-color: $color-green;
+    border: 0;
+
+    @media ($tablet-small-size) {
+        width: 100%;
+
+        &:not(:first-child) {
+            margin-top: 16px;
+        }
+    }
+}
+.global-main,
+.login-page {
+    height: 100%;
+}
+.login-container {
+    display: flex;
+    align-items: center;
+    width: 296px;
+    flex-direction: column;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -100%);
+    position: relative;
+
+    .control-button {
+        margin-top: 24px;
+        width: 100%;
+    }
+    @media ($tablet-small-size) {
+        width: 288px;
+    }
+}
+.login-input {
+    background: $color-white;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 0 0 16px;
+    margin-top: 4px;
+    width: 100%;
+}
+.login-title {
+    margin-top: 16px;
+    width: 100%;
+}
+.login-page .header__logo {
+    border-right: none;
+    cursor: auto;
+}
+.main_title {
+    font-size: 24px;
+    position: relative;
+    flex-shrink: 0;
+    //padding-bottom: 24px;
+    border-bottom: 1px solid $border-color;
+    width: 100%;
+    &__right {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        padding-right: 40px;
+        padding-bottom: 24px;
+
+        @media (max-width: $desctip-small-size)  {
+            padding-right: 0;
+        }
+        @media (max-width: $tablet-middle-size) {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+    &__left {
+        margin-bottom: 24px;
+        @media (max-width: $desctip-small-size) {
+            padding-right: 40px;
+        }
+    }
+    &__bottom {
+        display: flex;
+        @media (max-width: $tablet-small-size) {
+            flex-direction: column;
+        }
+    }
+}
+.title__link {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    cursor: pointer;
+}
+.search {
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 32px 16px 32px;
+    position: relative;
+}
+.search:after {
+    width: 16px;
+    height: 16px;
+    content: '';
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url("../images/icon-zoom.svg") center no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+.search__input {
+    border: none;
+    padding: 0 16px;
+    width: calc(100% - 56px);
+    margin-left: 56px;
+}
+.icons-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    width: 160px;
+    justify-content: flex-end;
+    @media (max-width: $tablet-small-size) {
+        width: 120px;
+    }
+}
+.call-icon {
+    margin-left: 24px;
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    &:after {
+        content: '';
+        width: 16px;
+        height: 16px;
+        display: block;
+        background-size: contain;
+    }
+    @media (max-width: $tablet-small-size) {
+        margin-left: 16px;
+    }
+}
+//icons
+
+.volume-button {
+    &:after {
+        background-image: url("../images/icon-speaker-active.svg");
+    }
+    &.active:after {
+        background-image: url("../images/icon-speaker.svg");
+    }
+
+}
+.microphone-button {
+    &:after {
+        background-image: url("../images/icon-audio-on.svg");
+    }
+    &.active:after {
+        background-image: url("../images/icon-audio-off.svg");
+    }
+}
+.broadcast-button {
+    &:after {
+        background-image: url("../images/icon-broadcast.svg");
+    }
+    &.active:after {
+        background-image: url("../images/icon-broadcast.svg");
+    }
+}
+.end-call-button:after {
+    background-image: url("../images/icon-end-call.svg");
+}
+.back-icon {
+    position: relative;
+    flex-shrink: 0;
+    font-size: 20px;
+    padding-left: 34px;
+    cursor: pointer;
+    display: inline-block;
+    &:after {
+        width: 18px;
+        height: 16px;
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("../images/icon-arrow-back.svg");
+    }
+    
+    @media (max-width: $tablet-size) {
+        font-size: 20px;
+    }
+    @media (max-width: $tablet-middle-size) {
+        font-size: 16px;
+    }
+}
+.icon-close {
+    width: 12px;
+    height: 12px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../images/icon-close.svg");
+    position: absolute;
+    right: 22px;
+    top: 22px;
+    cursor: pointer;
+    z-index: 1;
+    &:hover,
+    &:active {
+        background-image: url("../images/icon-close-active.svg");
+    }
+}
+
+.icon-bin {
+    width: 15px;
+    height: 16px;
+    background: url("../images/icon-trash.svg") no-repeat center;
+    background-size: contain;
+    flex-shrink: 0;
+}
+.exception-message {
+    text-align: left;
+    padding-top: 8px;
+    width: 100%;
+    color: #868C9B;
+    font-size: 13px;
+}
+
+
+@import "room.scss";
+@import "records.scss";
+@import "contacts.scss";
+@import "plansPricing.scss";
+@import "billing.scss";
+@import "registration.scss";
